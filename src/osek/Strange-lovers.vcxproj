@@ -1,0 +1,209 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{6B01A0DC-A4BF-44EE-943E-332CB02C8C37}</ProjectGuid>
+    <Keyword>MakeFileProj</Keyword>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Makefile</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Makefile</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <NMakeOutput>Strange-lovers.exe</NMakeOutput>
+    <NMakePreprocessorDefinitions>WIN32;_DEBUG;$(NMakePreprocessorDefinitions)</NMakePreprocessorDefinitions>
+    <IncludePath>$(VCInstallDir)include;$(VCInstallDir)atlmfc\include;$(WindowsSdkDir)include;$(FrameworkSDKDir)\include;C:\cygwin\GNUARM\arm-elf\include; C:\cygwin\GNUARM\include; C:\cygwin\nxtOSEK\ecrobot\c; C:\cygwin\nxtOSEK\ecrobot\nxtcommfantom; C:\cygwin\nxtOSEK\ecrobot\nxtway_gs_balancer; C:\cygwin\nxtOSEK\ecrobot\bios; C:\cygwin\nxtOSEK\toppers_osek\include; C:\cygwin\nxtOSEK\toppers_osek\kernel; C:\cygwin\nxtOSEK\lejos_nxj\src\nxtvm\platform\nxt; C:\cygwin\nxtOSEK\toppers_osek\config\at91sam7s-gnu; C:\cygwin\nxtOSEK\toppers_osek\config\at91sam7s-gnu\lego_nxt</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <NMakeOutput>Strange-lovers.exe</NMakeOutput>
+    <NMakePreprocessorDefinitions>WIN32;NDEBUG;$(NMakePreprocessorDefinitions)</NMakePreprocessorDefinitions>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <None Include="readme.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="DetectorPart\BrightnessEncoder.c" />
+    <ClCompile Include="DetectorPart\CurvatureEncoder.c" />
+    <ClCompile Include="DetectorPart\DirectionEncoder.c" />
+    <ClCompile Include="DetectorPart\DistanceEncoder.c" />
+    <ClCompile Include="DetectorPart\InclinationEncoder.c" />
+    <ClCompile Include="DetectorPart\Timer.c" />
+    <ClCompile Include="HardwareWrapperSpy\Motor.c" />
+    <ClCompile Include="HardwareWrapperSpy\SelfBalance.c" />
+    <ClCompile Include="HardwareWrapper\SelfBalance.c" />
+    <ClCompile Include="UI\ParameterReceiver.c" />
+    <ClCompile Include="UI\Display.c" />
+    <ClCompile Include="DrivenPart\TargetLightValueControl\LightVal.c" />
+    <ClCompile Include="DrivenPart\TargetLightValueControl\LightValCtrl.c" />
+    <ClCompile Include="DrivenPart\TargetLightValueControl\LightValListener.c" />
+    <ClCompile Include="DrivenPart\TargetLightValueControl\LightValRange.c" />
+    <ClCompile Include="DrivenPart\TargetLightValueControl\PIDLightValCtrl.c" />
+    <ClCompile Include="DrivenPart\TargetLightValueControl\PIDLightValCtrlParm.c" />
+    <ClCompile Include="DrivenPart\WheelActuator.c" />
+    <ClCompile Include="DrivenPart\DrivenDirector.c" />
+    <ClCompile Include="DrivenPart\PID_Brightness.c" />
+    <ClCompile Include="DrivenPart\PID_Tail.c" />
+    <ClCompile Include="DrivenPart\TailMotor.c" />
+    <ClCompile Include="DrivenPart\TargetCurvatureControl\Curvature.c" />
+    <ClCompile Include="DrivenPart\TargetCurvatureControl\CurvatureCtrl.c" />
+    <ClCompile Include="DrivenPart\TargetCurvatureControl\PIDCurvatureCtrl.c" />
+    <ClCompile Include="DrivenPart\TargetCurvatureControl\PIDCurvatureCtrlParm.c" />
+    <ClCompile Include="DrivenPart\TargetDirectionControl\DirectionCtrl.c" />
+    <ClCompile Include="DrivenPart\TargetSpeedControl\PIDSpeedCtrl.c" />
+    <ClCompile Include="DrivenPart\TargetSpeedControl\PIDSpeedCtrlParm.c" />
+    <ClCompile Include="DrivenPart\TargetSpeedControl\Speed.c" />
+    <ClCompile Include="DrivenPart\TargetSpeedControl\SpeedCtrl.c" />
+    <ClCompile Include="DrivenPart\WheelMotor.c" />
+    <ClCompile Include="EncoderPart\BrightnessEncoder.c" />
+    <ClCompile Include="EncoderPart\CurvatureEncoder.c" />
+    <ClCompile Include="EncoderPart\DirectionEncoder.c" />
+    <ClCompile Include="EncoderPart\DistanceEncoder.c" />
+    <ClCompile Include="EncoderPart\InclinationEncoder.c" />
+    <ClCompile Include="EncoderPart\SpeedEncoder.c" />
+    <ClCompile Include="EncoderPart\Timer.c" />
+    <ClCompile Include="HardwareWrapper\GyroSensor.c" />
+    <ClCompile Include="HardwareWrapper\LightSensor.c" />
+    <ClCompile Include="HardwareWrapper\Motor.c" />
+    <ClCompile Include="HardwareWrapper\SystemTimer.c" />
+    <ClCompile Include="lib\CommonFunction.c" />
+    <ClCompile Include="lib\LowPassFillter.c" />
+    <ClCompile Include="lib\MovingAverage.c" />
+    <ClCompile Include="lib\mymath.c" />
+    <ClCompile Include="detectorPart\speedEncoder.c" />
+    <ClCompile Include="StrategyFactories\AfterSlopeStraightFactory.c" />
+    <ClCompile Include="StrategyFactories\FiststCurveFactory.c" />
+    <ClCompile Include="StrategyFactories\FiststStraightFactory.c" />
+    <ClCompile Include="StrategyFactories\SecondCurve_1Factory.c" />
+    <ClCompile Include="StrategyFactories\SecondCurve_2Factory.c" />
+    <ClCompile Include="StrategyFactories\SecondCurve_3Factory.c" />
+    <ClCompile Include="StrategyFactories\SecondCurve_4Factory.c" />
+    <ClCompile Include="StrategyFactories\SecondStraightFactory.c" />
+    <ClCompile Include="StrategyFactories\SeeSawFactory.c" />
+    <ClCompile Include="StrategyFactories\SlopeFactory.c" />
+    <ClCompile Include="StrategyFactories\ThurdCurve_1Factory.c" />
+    <ClCompile Include="StrategyFactories\ThurdCurve_2Factory.c" />
+    <ClCompile Include="StrategyFactories\ThurdCurve_3Factory.c" />
+    <ClCompile Include="StrategyFactories\ThurdCurve_4Factory.c" />
+    <ClCompile Include="StrategyFactories\ThurdCurve_5Factory.c" />
+    <ClCompile Include="StrategyFactories\ThurdCurve_6Factory.c" />
+    <ClCompile Include="StrategyFactories\ThurdStraightFactory.c" />
+    <ClCompile Include="StrategyPart\Runner.c" />
+    <ClCompile Include="StrategyPart\RunningMethod.c" />
+    <ClCompile Include="StrategyPart\RunningStrategy.c" />
+    <ClCompile Include="StrategyPart\Section.c" />
+    <ClCompile Include="HardwareWrapper\TouchSensor.c" />
+    <ClCompile Include="UI\PushButton.c" />
+    <ClCompile Include="UI\Starter.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="detectorpart\brightnessencoder.h" />
+    <ClInclude Include="DetectorPart\CurvatureEncoder.h" />
+    <ClInclude Include="DetectorPart\DirectionEncoder.h" />
+    <ClInclude Include="detectorpart\distanceencoder.h" />
+    <ClInclude Include="detectorpart\inclinationencoder.h" />
+    <ClInclude Include="detectorpart\timer.h" />
+    <ClInclude Include="HardwareWrapper\SelfBalance.h" />
+    <ClInclude Include="UI\ParameterReceiver.h" />
+    <ClInclude Include="UI\Display.h" />
+    <ClInclude Include="DrivenPart\ControllerWeight.h" />
+    <ClInclude Include="DrivenPart\TargetLightValueControl\LightVal.h" />
+    <ClInclude Include="DrivenPart\TargetLightValueControl\LightValCtrl.h" />
+    <ClInclude Include="DrivenPart\TargetLightValueControl\LightValCtrlState.h" />
+    <ClInclude Include="DrivenPart\TargetLightValueControl\LightValListener.h" />
+    <ClInclude Include="DrivenPart\TargetLightValueControl\LightValRange.h" />
+    <ClInclude Include="DrivenPart\TargetLightValueControl\PIDLightValCtrl.h" />
+    <ClInclude Include="DrivenPart\TargetLightValueControl\PIDLightValCtrlParm.h" />
+    <ClInclude Include="DrivenPart\TargetSpeedControl\SpeedCtrlState.h" />
+    <ClInclude Include="DrivenPart\WheelActuator.h" />
+    <ClInclude Include="DrivenPart\ControllerWegiht.h" />
+    <ClInclude Include="DrivenPart\DrivenDirector.h" />
+    <ClInclude Include="DrivenPart\PID_Brightness.h" />
+    <ClInclude Include="DrivenPart\PID_Tail.h" />
+    <ClInclude Include="DrivenPart\TailMotor.h" />
+    <ClInclude Include="DrivenPart\TargetCurvatureControl\Curvature.h" />
+    <ClInclude Include="DrivenPart\TargetCurvatureControl\CurvatureCtrl.h" />
+    <ClInclude Include="DrivenPart\TargetCurvatureControl\CurvatureCtrlState.h" />
+    <ClInclude Include="DrivenPart\TargetCurvatureControl\PIDCurvatureCtrl.h" />
+    <ClInclude Include="DrivenPart\TargetCurvatureControl\PIDCurvatureCtrlParm.h" />
+    <ClInclude Include="DrivenPart\TargetDirectionControl\DirectionCtrl.h" />
+    <ClInclude Include="DrivenPart\TargetSpeedControl\PIDSpeedCtrl.h" />
+    <ClInclude Include="DrivenPart\TargetSpeedControl\PIDSpeedCtrlParm.h" />
+    <ClInclude Include="DrivenPart\TargetSpeedControl\Speed.h" />
+    <ClInclude Include="DrivenPart\TargetSpeedControl\SpeedCtrl.h" />
+    <ClInclude Include="DrivenPart\WheelMotor.h" />
+    <ClInclude Include="EncoderPart\BrightnessEncoder.h" />
+    <ClInclude Include="EncoderPart\CurvatureEncoder.h" />
+    <ClInclude Include="EncoderPart\DirectionEncoder.h" />
+    <ClInclude Include="EncoderPart\DistanceEncoder.h" />
+    <ClInclude Include="EncoderPart\InclinationEncoder.h" />
+    <ClInclude Include="EncoderPart\SpeedEncoder.h" />
+    <ClInclude Include="EncoderPart\Timer.h" />
+    <ClInclude Include="HardwareWrapper\GyroSensor.h" />
+    <ClInclude Include="HardwareWrapper\LightSensor.h" />
+    <ClInclude Include="HardwareWrapper\Motor.h" />
+    <ClInclude Include="HardwareWrapper\SystemTimer.h" />
+    <ClInclude Include="lib\CommonFunction.h" />
+    <ClInclude Include="lib\LowPassFillter.h" />
+    <ClInclude Include="lib\MovingAverage.h" />
+    <ClInclude Include="lib\mymath.h" />
+    <ClInclude Include="detectorPart\SpeedEncoder.h" />
+    <ClInclude Include="StrategyFactories\AfterSlopeStraightFactory.h" />
+    <ClInclude Include="StrategyFactories\FiststCurveFactory.h" />
+    <ClInclude Include="StrategyFactories\FiststStraightFactory.h" />
+    <ClInclude Include="StrategyFactories\SecondCurve_1Factory.h" />
+    <ClInclude Include="StrategyFactories\SecondCurve_2Factory.h" />
+    <ClInclude Include="StrategyFactories\SecondCurve_3Factory.h" />
+    <ClInclude Include="StrategyFactories\SecondCurve_4Factory.h" />
+    <ClInclude Include="StrategyFactories\SecondStraightFactory.h" />
+    <ClInclude Include="StrategyFactories\SeeSawFactory.h" />
+    <ClInclude Include="StrategyFactories\SlopeFactory.h" />
+    <ClInclude Include="StrategyFactories\ThurdCurve_1Factory.h" />
+    <ClInclude Include="StrategyFactories\ThurdCurve_2Factory.h" />
+    <ClInclude Include="StrategyFactories\ThurdCurve_3Factory.h" />
+    <ClInclude Include="StrategyFactories\ThurdCurve_4Factory.h" />
+    <ClInclude Include="StrategyFactories\ThurdCurve_5Factory.h" />
+    <ClInclude Include="StrategyFactories\ThurdCurve_6Factory.h" />
+    <ClInclude Include="StrategyFactories\ThurdStraightFactory.h" />
+    <ClInclude Include="strategypart\changeterm.h" />
+    <ClInclude Include="StrategyPart\Runner.h" />
+    <ClInclude Include="StrategyPart\RunnerState.h" />
+    <ClInclude Include="StrategyPart\RunningMethod.h" />
+    <ClInclude Include="StrategyPart\RunningStrategy.h" />
+    <ClInclude Include="StrategyPart\Section.h" />
+    <ClInclude Include="StrategyPart\SwitchTerm.h" />
+    <ClInclude Include="StrategyPart\TargetValues.h" />
+    <ClInclude Include="HardwareWrapper\TouchSensor.h" />
+    <ClInclude Include="UI\PushButton.h" />
+    <ClInclude Include="UI\Starter.h" />
+    <ClInclude Include="UI\StarterState.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
