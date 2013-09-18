@@ -19,6 +19,9 @@
     <Filter Include="test\osek">
       <UniqueIdentifier>{7d5849f1-a175-4b2a-9c11-952222be1cc9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\osek\lib">
+      <UniqueIdentifier>{79da482d-20b3-40b8-81fd-fb183f1abcf3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\src\HomeAutomation\LightController.h">
@@ -36,20 +39,8 @@
     <ClInclude Include="..\..\test\HomeAutomation\LightControllerSpy.h">
       <Filter>test\HomeAutomation</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\osek\kernel_id.h">
-      <Filter>src\osek</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\osek\mymath.h">
-      <Filter>src\osek</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\osek\runner.h">
-      <Filter>src\osek</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\osek\runnerforTestRun.h">
-      <Filter>src\osek</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\osek\SelfLocation.h">
-      <Filter>src\osek</Filter>
+    <ClInclude Include="..\..\src\osek\lib\mymath.h">
+      <Filter>src\osek\lib</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -74,26 +65,11 @@
     <ClCompile Include="..\..\test\AllTests.cpp">
       <Filter>test</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\src\osek\balancer_param.c">
-      <Filter>src\osek</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\osek\kernel_cfg.c">
-      <Filter>src\osek</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\osek\mymath.c">
-      <Filter>src\osek</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\osek\runner.c">
-      <Filter>src\osek</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\osek\runnerforTestRun.c">
-      <Filter>src\osek</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\osek\SelfLocation.c">
-      <Filter>src\osek</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\test\osek\mymathTest.cpp">
       <Filter>test\osek</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\osek\lib\mymath.c">
+      <Filter>src\osek\lib</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

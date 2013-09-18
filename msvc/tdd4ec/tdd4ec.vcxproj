@@ -80,22 +80,13 @@
     <ClInclude Include="..\..\src\HomeAutomation\LightController.h" />
     <ClInclude Include="..\..\src\HomeAutomation\LightScheduler.h" />
     <ClInclude Include="..\..\src\HomeAutomation\TimeService.h" />
-    <ClInclude Include="..\..\src\osek\kernel_id.h" />
-    <ClInclude Include="..\..\src\osek\mymath.h" />
-    <ClInclude Include="..\..\src\osek\runner.h" />
-    <ClInclude Include="..\..\src\osek\runnerforTestRun.h" />
-    <ClInclude Include="..\..\src\osek\SelfLocation.h" />
+    <ClInclude Include="..\..\src\osek\lib\mymath.h" />
     <ClInclude Include="..\..\test\HomeAutomation\FakeTimeService.h" />
     <ClInclude Include="..\..\test\HomeAutomation\LightControllerSpy.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\src\HomeAutomation\LightScheduler.c" />
-    <ClCompile Include="..\..\src\osek\balancer_param.c" />
-    <ClCompile Include="..\..\src\osek\kernel_cfg.c" />
-    <ClCompile Include="..\..\src\osek\mymath.c" />
-    <ClCompile Include="..\..\src\osek\runner.c" />
-    <ClCompile Include="..\..\src\osek\runnerforTestRun.c" />
-    <ClCompile Include="..\..\src\osek\SelfLocation.c" />
+    <ClCompile Include="..\..\src\osek\lib\mymath.c" />
     <ClCompile Include="..\..\test\AllTests.cpp" />
     <ClCompile Include="..\..\test\HomeAutomation\FakeTimeService.c" />
     <ClCompile Include="..\..\test\HomeAutomation\FakeTimeServiceTest.cpp" />

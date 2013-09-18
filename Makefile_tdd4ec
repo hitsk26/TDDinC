@@ -22,6 +22,7 @@ SRC_DIRS = \
   ./src/osek/\
   ./src/osek/DrivenPart\
  ./src/osek/HardwareWrapperSpy\
+ ./src/osek/lib\
  
 TEST_SRC_DIRS = \
 	./test\
@@ -34,6 +35,7 @@ INCLUDE_DIRS =\
   ./test/HomeAutomation\
   ./src/osek/DrivenPart\
   ./src/osek/HardwareWrapper\
+  ./src/osek/lib\
   $(CPPUTEST_HOME)/include\
 
 include $(CPPUTEST_HOME)/build/MakefileWorker.mk
