@@ -80,12 +80,14 @@
     <ClInclude Include="..\..\src\HomeAutomation\LightController.h" />
     <ClInclude Include="..\..\src\HomeAutomation\LightScheduler.h" />
     <ClInclude Include="..\..\src\HomeAutomation\TimeService.h" />
+    <ClInclude Include="..\..\src\LedDriver\LedDriver.h" />
     <ClInclude Include="..\..\src\osek\lib\mymath.h" />
     <ClInclude Include="..\..\test\HomeAutomation\FakeTimeService.h" />
     <ClInclude Include="..\..\test\HomeAutomation\LightControllerSpy.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\src\HomeAutomation\LightScheduler.c" />
+    <ClCompile Include="..\..\src\LedDriver\LedDriver.c" />
     <ClCompile Include="..\..\src\osek\lib\mymath.c" />
     <ClCompile Include="..\..\test\AllTests.cpp" />
     <ClCompile Include="..\..\test\HomeAutomation\FakeTimeService.c" />
@@ -93,7 +95,9 @@
     <ClCompile Include="..\..\test\HomeAutomation\LightControllerSpy.c" />
     <ClCompile Include="..\..\test\HomeAutomation\LightControllerSpyTest.cpp" />
     <ClCompile Include="..\..\test\HomeAutomation\LightSchedulerTest.cpp" />
+    <ClCompile Include="..\..\test\LedDriver\LedDriverTest.cpp" />
     <ClCompile Include="..\..\test\osek\mymathTest.cpp" />
+    <ClCompile Include="..\..\test\sprintf\SprintfTest.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

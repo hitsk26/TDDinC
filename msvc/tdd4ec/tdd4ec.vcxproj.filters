@@ -22,6 +22,15 @@
     <Filter Include="src\osek\lib">
       <UniqueIdentifier>{79da482d-20b3-40b8-81fd-fb183f1abcf3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="test\sprintf">
+      <UniqueIdentifier>{338d4fad-4cc8-42b3-8649-4d514700cb57}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="test\LedDriver">
+      <UniqueIdentifier>{494fefd2-b36a-448b-82e5-ecd30e8f46fa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\LedDriver">
+      <UniqueIdentifier>{398aee3e-86e0-4f8e-bd35-425bac387d5e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\src\HomeAutomation\LightController.h">
@@ -41,6 +50,9 @@
     </ClInclude>
     <ClInclude Include="..\..\src\osek\lib\mymath.h">
       <Filter>src\osek\lib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\LedDriver\LedDriver.h">
+      <Filter>src\LedDriver</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -70,6 +82,15 @@
     </ClCompile>
     <ClCompile Include="..\..\src\osek\lib\mymath.c">
       <Filter>src\osek\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\test\sprintf\SprintfTest.cpp">
+      <Filter>test\sprintf</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\test\LedDriver\LedDriverTest.cpp">
+      <Filter>test\LedDriver</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\LedDriver\LedDriver.c">
+      <Filter>src\LedDriver</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

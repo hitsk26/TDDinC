@@ -23,6 +23,7 @@ SRC_DIRS = \
   ./src/osek/DrivenPart\
  ./src/osek/HardwareWrapperSpy\
  ./src/osek/lib\
+ ./src/LedDriver\
  
 TEST_SRC_DIRS = \
 	./test\
@@ -37,6 +38,7 @@ INCLUDE_DIRS =\
   ./src/osek/DrivenPart\
   ./src/osek/HardwareWrapper\
   ./src/osek/lib\
+  ./src/LedDriver\
   $(CPPUTEST_HOME)/include\
 
 include $(CPPUTEST_HOME)/build/MakefileWorker.mk
