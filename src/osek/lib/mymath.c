@@ -1,4 +1,6 @@
 #include "mymath.h"
+#include "math.h"
+
 /*
  *	ŠeŽí’è‹`
 */

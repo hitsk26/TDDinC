@@ -15,8 +15,8 @@ TEST_GROUP(mymath) {
 
 TEST(mymath, sin) {
 	LONGS_EQUAL(0,mysin(0));
-	DOUBLES_EQUAL(1,mysin(PI/4),0);
-	
+	DOUBLES_EQUAL(1,mysin(PI/2),1);
+	DOUBLES_EQUAL(-1,mysin(-PI/2),1);
 }
 
 
