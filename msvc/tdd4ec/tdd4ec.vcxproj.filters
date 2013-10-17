@@ -22,6 +22,12 @@
     <Filter Include="src\osek\lib">
       <UniqueIdentifier>{79da482d-20b3-40b8-81fd-fb183f1abcf3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="test\Sprintf">
+      <UniqueIdentifier>{e118a6db-1748-4103-9d31-db527e0989d6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="test\LEDDriver">
+      <UniqueIdentifier>{ed62bce7-dec7-44d4-a42d-97e56108ef4b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\src\HomeAutomation\LightController.h">
@@ -70,6 +76,12 @@
     </ClCompile>
     <ClCompile Include="..\..\src\osek\lib\mymath.c">
       <Filter>src\osek\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\test\sprintf\SprintfTest.cpp">
+      <Filter>test\Sprintf</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\test\LEDDriver\LEDDriverTest.cpp">
+      <Filter>test\LEDDriver</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
