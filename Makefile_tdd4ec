@@ -20,27 +20,17 @@ CPP_PLATFORM = Gcc
 SRC_DIRS = \
   ./src/HomeAutomation\
   ./src/osek/\
-  ./src/osek/DrivenPart\
- ./src/osek/HardwareWrapperSpy\
- ./src/osek/lib\
- ./src/LedDriver\
+  ./src/LedDriver\
  
 TEST_SRC_DIRS = \
 	./test\
 	./test/HomeAutomation\
 	./test/Sprintf\
-	./test/osek/\
-	./test/LedDriver/\
+	./test/LEDDriver\
 
 INCLUDE_DIRS =\
   ./src/HomeAutomation\
   ./test/HomeAutomation\
-  ./src/osek/DrivenPart\
-  ./src/osek/HardwareWrapper\
-  ./src/osek/lib\
-  ./src/LedDriver\
   $(CPPUTEST_HOME)/include\
 
 include $(CPPUTEST_HOME)/build/MakefileWorker.mk
-
-

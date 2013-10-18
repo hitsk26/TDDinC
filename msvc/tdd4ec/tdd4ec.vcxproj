@@ -95,9 +95,12 @@
     <ClCompile Include="..\..\test\HomeAutomation\LightControllerSpy.c" />
     <ClCompile Include="..\..\test\HomeAutomation\LightControllerSpyTest.cpp" />
     <ClCompile Include="..\..\test\HomeAutomation\LightSchedulerTest.cpp" />
-    <ClCompile Include="..\..\test\LedDriver\LedDriverTest.cpp" />
+    <ClCompile Include="..\..\test\LEDDriver\LEDDriverTest.cpp" />
     <ClCompile Include="..\..\test\osek\mymathTest.cpp" />
     <ClCompile Include="..\..\test\sprintf\SprintfTest.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\Makefile_tdd4ec" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

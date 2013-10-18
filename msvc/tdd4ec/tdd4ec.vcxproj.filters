@@ -22,14 +22,14 @@
     <Filter Include="src\osek\lib">
       <UniqueIdentifier>{79da482d-20b3-40b8-81fd-fb183f1abcf3}</UniqueIdentifier>
     </Filter>
-    <Filter Include="test\sprintf">
-      <UniqueIdentifier>{338d4fad-4cc8-42b3-8649-4d514700cb57}</UniqueIdentifier>
+    <Filter Include="test\Sprintf">
+      <UniqueIdentifier>{e118a6db-1748-4103-9d31-db527e0989d6}</UniqueIdentifier>
     </Filter>
-    <Filter Include="test\LedDriver">
-      <UniqueIdentifier>{494fefd2-b36a-448b-82e5-ecd30e8f46fa}</UniqueIdentifier>
+    <Filter Include="test\LEDDriver">
+      <UniqueIdentifier>{ed62bce7-dec7-44d4-a42d-97e56108ef4b}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\LedDriver">
-      <UniqueIdentifier>{398aee3e-86e0-4f8e-bd35-425bac387d5e}</UniqueIdentifier>
+    <Filter Include="src\LEDDriver">
+      <UniqueIdentifier>{efdaf750-7858-4c4c-9fd0-82ece19ab40e}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -52,7 +52,7 @@
       <Filter>src\osek\lib</Filter>
     </ClInclude>
     <ClInclude Include="..\..\src\LedDriver\LedDriver.h">
-      <Filter>src\LedDriver</Filter>
+      <Filter>src\LEDDriver</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -84,13 +84,16 @@
       <Filter>src\osek\lib</Filter>
     </ClCompile>
     <ClCompile Include="..\..\test\sprintf\SprintfTest.cpp">
-      <Filter>test\sprintf</Filter>
+      <Filter>test\Sprintf</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\test\LedDriver\LedDriverTest.cpp">
-      <Filter>test\LedDriver</Filter>
+    <ClCompile Include="..\..\test\LEDDriver\LEDDriverTest.cpp">
+      <Filter>test\LEDDriver</Filter>
     </ClCompile>
     <ClCompile Include="..\..\src\LedDriver\LedDriver.c">
-      <Filter>src\LedDriver</Filter>
+      <Filter>src\LEDDriver</Filter>
     </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\Makefile_tdd4ec" />
   </ItemGroup>
 </Project>
