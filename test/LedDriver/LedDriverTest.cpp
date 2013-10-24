@@ -10,27 +10,25 @@ extern "C"{
 
 TEST_GROUP(LEDDriver)
 {
-	//uint16_t virtualLeds;
+	uint16_t virtualLeds;
 
-	void setUp(){
-
+	void setup(){
+		LedDriver_Create(&virtualLeds);
 	}
-	void tearDown(){
+	void teardown(){
 
 	}
 };
 
 TEST(LEDDriver,LedsOffAfterCreate)
 {
-	uint16_t virtualLeds = 0xffff;
+	virtualLeds = 0xffff;
 	LedDriver_Create(&virtualLeds);
 	LONGS_EQUAL(0, virtualLeds);
 }
 
 TEST(LEDDriver, TurnOnLedOne)
 {
-	uint16_t virtualLeds;
-	LedDriver_Create(&virtualLeds);
 	LedDriver_TurnOn(1);
 	LONGS_EQUAL(1,virtualLeds);
 
@@ -38,8 +36,6 @@ TEST(LEDDriver, TurnOnLedOne)
 
 TEST(LEDDriver, TurnOffLedOne)
 {
-	uint16_t virtualLeds;
-	LedDriver_Create(&virtualLeds);
 	LedDriver_TurnOn(1);
 	LedDriver_TurnOff(1);
 	LONGS_EQUAL(0, virtualLeds);
