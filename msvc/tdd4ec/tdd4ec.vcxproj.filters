@@ -31,6 +31,15 @@
     <Filter Include="src\LEDDriver">
       <UniqueIdentifier>{efdaf750-7858-4c4c-9fd0-82ece19ab40e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="include">
+      <UniqueIdentifier>{844644ef-fe5d-4940-b39b-d1cff4cc2227}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include\util">
+      <UniqueIdentifier>{ba60a3af-4280-4843-9c09-145379a3e3c9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="mocks">
+      <UniqueIdentifier>{7eef93eb-26e3-4eb9-a859-019fadfc41ab}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\src\HomeAutomation\LightController.h">
@@ -53,6 +62,12 @@
     </ClInclude>
     <ClInclude Include="..\..\src\LedDriver\LedDriver.h">
       <Filter>src\LEDDriver</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\util\RunTimeError.h">
+      <Filter>include\util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\mocks\RuntimeErrorStub.h">
+      <Filter>mocks</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -91,6 +106,9 @@
     </ClCompile>
     <ClCompile Include="..\..\src\LedDriver\LedDriver.c">
       <Filter>src\LEDDriver</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\mocks\RuntimeErrorStub.c">
+      <Filter>mocks</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

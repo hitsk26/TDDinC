@@ -27,10 +27,12 @@ TEST_SRC_DIRS = \
 	./test/HomeAutomation\
 	./test/Sprintf\
 	./test/LEDDriver\
+	./mocks\
 
 INCLUDE_DIRS =\
   ./src/HomeAutomation\
   ./test/HomeAutomation\
+  ./include/util\
   $(CPPUTEST_HOME)/include\
 
 include $(CPPUTEST_HOME)/build/MakefileWorker.mk
