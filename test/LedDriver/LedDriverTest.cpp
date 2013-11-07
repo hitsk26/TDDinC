@@ -105,3 +105,24 @@ IGNORE_TEST(LEDDriver,OutOfBoundsToDo)
 	/*TODO something*/
 
 }
+
+TEST(LEDDriver, IsON)
+{
+	CHECK_FALSE(LedDriver_IsOn(11));
+	LedDriver_TurnOn(11);
+	CHECK_TRUE(LedDriver_IsOn(11));
+}
+
+TEST(LEDDriver, OutOfBoundsLedsAreAlwaysOff)
+{
+	CHECK_FALSE(LedDriver_IsOn(0));
+	CHECK_FALSE(LedDriver_IsOn(17));
+}
+
+TEST(LEDDriver,IsOff)
+{
+	CHECK_TRUE(LedDriver_IsOff(12));
+	LedDriver_TurnOn(12);
+	CHECK_FALSE(LedDriver_IsOff(12));
+}
+

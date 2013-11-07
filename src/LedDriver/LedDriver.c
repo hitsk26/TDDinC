@@ -75,3 +75,18 @@ static void clearLedImageBit(int ledNumber)
 {
 	ledsImage &= ~(convertLedNumberToBit(ledNumber)); 
 }
+
+int LedDriver_IsOn(int ledNumber)
+{
+	if(IsLedOutOfBounds(ledNumber)){
+		return 0;
+	}
+	return 0 != (ledsImage & convertLedNumberToBit(ledNumber));
+}
+
+int LedDriver_IsOff(int ledNumber)
+{
+	return !LedDriver_IsOn(ledNumber);
+}
+
+
