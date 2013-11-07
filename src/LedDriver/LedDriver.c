@@ -52,6 +52,12 @@ void LedDriver_TurnAllOn(void)
 	updateHardWare();
 }
 
+void LedDriver_TurnAllOff(void)
+{
+	ledsImage= ALL_LEDS_OFF;
+	updateHardWare();
+}
+
 static uint16_t convertLedNumberToBit(int ledNumber){
 	return (uint16_t)(1<<(ledNumber -1) );
 }

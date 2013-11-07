@@ -115,6 +115,8 @@ TEST(LEDDriver, IsON)
 
 TEST(LEDDriver, OutOfBoundsLedsAreAlwaysOff)
 {
+	CHECK_TRUE(LedDriver_IsOff(0));
+	CHECK_TRUE(LedDriver_IsOff(17));
 	CHECK_FALSE(LedDriver_IsOn(0));
 	CHECK_FALSE(LedDriver_IsOn(17));
 }
@@ -126,3 +128,17 @@ TEST(LEDDriver,IsOff)
 	CHECK_FALSE(LedDriver_IsOff(12));
 }
 
+TEST(LEDDriver, TurnOffMultipleLeds)
+{
+	LedDriver_TurnAllOn();
+	LedDriver_TurnOff(9);
+	LedDriver_TurnOff(8);
+	LONGS_EQUAL((~0x0180)&0xffff, virtualLeds);
+}
+
+TEST(LEDDriver, AllOff)
+{
+	LedDriver_TurnAllOn();
+	LedDriver_TurnAllOff();
+	LONGS_EQUAL(0, virtualLeds);
+}
