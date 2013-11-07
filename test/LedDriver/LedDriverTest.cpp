@@ -99,6 +99,7 @@ TEST(LEDDriver, OutOfBoundsProduesRuntimeError)
 		RuntimeErrorStub_GetLastError());
 	LONGS_EQUAL(-1, RuntimeErrorStub_GetLastParameter());
 }
+
 IGNORE_TEST(LEDDriver,OutOfBoundsToDo)
 {
 	/*TODO something*/
