@@ -26,3 +26,5 @@
 *.suo
 vs2010
 *.metagen
+.cproject
+.project
