@@ -144,3 +144,4 @@ TEST(LEDDriver, AllOff)
 	LedDriver_TurnAllOff();
 	LONGS_EQUAL(0, virtualLeds);
 }
+

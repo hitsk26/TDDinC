@@ -25,3 +25,4 @@ int RuntimeErrorStub_GetLastParameter(void)
 {
 	return parameter;
 }
+

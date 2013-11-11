@@ -31,10 +31,10 @@ TEST_GROUP(sprintf){
 
 TEST(sprintf,NoFormatOperations)
 {
-	
+
 	expect("hey");
 	given(sprintf(output,"hey"));
-	
+
 	//LONGS_EQUAL(3,sprintf(output,"hey"));
 	//STRCMP_EQUAL("hey",output);
 
@@ -45,3 +45,4 @@ TEST(sprintf,InsertString)
 	expect("Hello World\n");
 	given((sprintf(output,"Hello %s\n","World")));
 }
+
