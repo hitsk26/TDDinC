@@ -18,21 +18,21 @@ CPPUTEST_USE_EXTENSIONS = Y
 CPP_PLATFORM = Gcc
 
 SRC_DIRS = \
-  ./src/HomeAutomation\
-  ./src/osek/\
   ./src/LedDriver\
+  # ./src/HomeAutomation\
+  # ./src/osek/\
  
 TEST_SRC_DIRS = \
-	./test\
-	./test/HomeAutomation\
-	./test/Sprintf\
 	./test/LEDDriver\
 	./mocks\
+	# ./test\
+	# ./test/HomeAutomation\
+	# ./test/Sprintf\
 
 INCLUDE_DIRS =\
-  ./src/HomeAutomation\
-  ./test/HomeAutomation\
   ./include/util\
   $(CPPUTEST_HOME)/include\
+  # ./src/HomeAutomation\
+  # ./test/HomeAutomation\
 
 include $(CPPUTEST_HOME)/build/MakefileWorker.mk
