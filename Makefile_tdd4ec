@@ -19,19 +19,24 @@ CPP_PLATFORM = Gcc
 
 SRC_DIRS = \
   ./src/HomeAutomation\
-  ./src/osek/\
+  ./src/osek/DrivenPart\
+  ./src/osek/HardwareWrapperSpy\
+  ./src/osek/lib\
   ./src/LedDriver\
- 
+
+
 TEST_SRC_DIRS = \
 	./test\
 	./test/HomeAutomation\
 	./test/Sprintf\
 	./test/LEDDriver\
+	./test/osek\
 	./mocks\
 
 INCLUDE_DIRS =\
   ./src/HomeAutomation\
   ./test/HomeAutomation\
+  ./src/osek\
   ./include/util\
   $(CPPUTEST_HOME)/include\
 
