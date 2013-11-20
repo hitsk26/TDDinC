@@ -30,6 +30,11 @@ CPU ATMEL_AT91SAM7S256
 		MASK = AUTO;
 	};
 
+	 /* Definition of resource */
+	RESOURCE resource1
+	{
+		RESOURCEPROPERTY = STANDARD;
+	};
 
 	TASK INITIALIZE
 	{
@@ -40,7 +45,7 @@ CPU ATMEL_AT91SAM7S256
 		SCHEDULE = FULL;
 		PRIORITY = 1;
 		ACTIVATION = 1;
-		STACKSIZE = 512;
+		STACKSIZE = 128;
 		RESOURCE = lcd;
 
 	};
@@ -52,7 +57,7 @@ CPU ATMEL_AT91SAM7S256
 		SCHEDULE = FULL;
 		PRIORITY = 1;
 		ACTIVATION = 1;
-		STACKSIZE = 512;
+		STACKSIZE = 256;
 		RESOURCE = lcd;
 
 	};
@@ -65,6 +70,27 @@ CPU ATMEL_AT91SAM7S256
 		ACTIVATION = 1;
 		STACKSIZE = 512;
 		RESOURCE = lcd;
+		RESOURCE = resource1;
+		EVENT = RUNEVENT;
+	};
+
+	TASK DriveTask1
+	{
+		AUTOSTART = FALSE;
+		SCHEDULE = FULL;
+		PRIORITY = 5;
+		ACTIVATION = 1;
+		STACKSIZE = 256;
+		EVENT = RUNEVENT;
+	};
+
+	TASK DriveTask2
+	{
+		AUTOSTART = FALSE;
+		SCHEDULE = FULL;
+		PRIORITY = 4;
+		ACTIVATION = 1;
+		STACKSIZE = 256;
 		EVENT = RUNEVENT;
 	};
 
@@ -74,6 +100,21 @@ CPU ATMEL_AT91SAM7S256
 		ACTION = ACTIVATETASK
 		{
 			TASK = ActionTask;
+		};
+		AUTOSTART = TRUE
+		{
+			ALARMTIME = 1;
+			CYCLETIME = 4;
+			APPMODE = appmode1;
+		};
+	};
+
+	ALARM cyclic_alarm2
+	{
+		COUNTER = SysTimerCnt;
+		ACTION = ACTIVATETASK
+		{
+			TASK = DriveTask1;
 		};
 		AUTOSTART = TRUE
 		{
@@ -97,7 +138,22 @@ CPU ATMEL_AT91SAM7S256
 			APPMODE = appmode1;
 		};
 	};
-	
+
+	ALARM cyclic_alarm4
+	{
+		COUNTER = SysTimerCnt;
+		ACTION = ACTIVATETASK
+		{
+			TASK = DriveTask2;
+		};
+		AUTOSTART = TRUE
+		{
+			ALARMTIME = 1;
+			CYCLETIME = 4;
+			APPMODE = appmode1;
+		};
+	};
+
 	COUNTER SysTimerCnt
 	{
 		MINCYCLE = 1;

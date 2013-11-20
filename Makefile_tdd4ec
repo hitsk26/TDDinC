@@ -20,6 +20,8 @@ CPP_PLATFORM = Gcc
 SRC_DIRS = \
   ./src/HomeAutomation\
   ./src/osek/DrivenPart\
+  ./src/osek/DrivenPart/TargetLightValueControl\
+  ./src/osek/EncoderPart\
   ./src/osek/HardwareWrapperSpy\
   ./src/osek/lib\
   ./src/LedDriver\
@@ -31,9 +33,11 @@ TEST_SRC_DIRS = \
 	./test/Sprintf\
 	./test/LEDDriver\
 	./test/osek\
+	./test/osek/EncoderPartTest\
 	./mocks\
 
 INCLUDE_DIRS =\
+  ./src/osek/EncoderPart\
   ./src/HomeAutomation\
   ./test/HomeAutomation\
   ./src/osek\

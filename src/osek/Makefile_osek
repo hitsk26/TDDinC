@@ -9,7 +9,7 @@ USER_LIB = nxtway_gs_balancer
 
 # using NXT standard tires (not Motorcycle tires)
 #USER_DEF = NXT_STD_TIRE
-DRIVENPART_SOURCES := 
+DRIVENPART_SOURCES :=
 # User application source
 TARGET_SOURCES := \
 	./Factory.c \
