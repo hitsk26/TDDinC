@@ -5,6 +5,6 @@
 
 
 void FakeTimeService_SetMinute(int minute);
-void FakeTimeService_SetDay(int dayofweek);
+void FakeTimeService_SetDay(int day);
 
 #endif /* FAKETIMESERVICE_H_ */

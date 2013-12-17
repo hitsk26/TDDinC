@@ -1,35 +1,34 @@
 #include "FakeTimeService.h"
 
 
+Time time_;
 
-static int minute;
-static int dayofweek;
-
+	int minuteOfDay;
+	int dayOfWeek;
 
 void TimeService_Create(void)
 {
-	minute = TIME_UNKNOWN;
-	dayofweek = TIME_UNKNOWN;
+	time_.minuteOfDay = TIME_UNKNOWN;
+	time_.dayOfWeek = TIME_UNKNOWN;
 }
 
 void TimeService_Destroy(void)
 {
 
-
 }
 
 
 int TimeService_GetTime(Time *time){
-	time->dayOfWeek = dayofweek;
-	time->minuteOfDay = minute;
+	time->dayOfWeek = time_.dayOfWeek;
+	time->minuteOfDay =time_.minuteOfDay;
 }
 
-void FakeTimeService_SetMinute(int setting_minute)
+void FakeTimeService_SetMinute(int minuteOfDay)
 {
-	minute = setting_minute;
+	time_.minuteOfDay = minuteOfDay;
 
 }
-void FakeTimeService_SetDay(int setting_dayofweek)
+void FakeTimeService_SetDay(int day)
 {
-	dayofweek = setting_dayofweek;
+	time_.dayOfWeek = day;
 }
