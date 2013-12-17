@@ -30,3 +30,8 @@ void LightController_On(int id)
 	lastID = id;
 	lastState = LIGHT_ON;
 }
+void LightController_Off(int id)
+{
+	lastID = id;
+	lastState = LIGHT_OFF;
+}
