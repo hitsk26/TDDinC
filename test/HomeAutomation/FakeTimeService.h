@@ -3,12 +3,8 @@
 
 #include "TimeService.h"
 
-enum {
-	TIME_UNKNOWN = -1
-};
 
 void FakeTimeService_SetMinute(int minute);
-
-void FakeTimeService_SetDay(int day);
+void FakeTimeService_SetDay(int dayofweek);
 
 #endif /* FAKETIMESERVICE_H_ */

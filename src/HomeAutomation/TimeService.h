@@ -4,12 +4,22 @@
 typedef struct {
 	int minuteOfDay;
 	int dayOfWeek;
-} Time;
+}Time;
+
+enum {
+	TIME_UNKNOWN = -1
+};
+
+typedef enum
+{
+	MONDAY,SUNDAY,SATURDAY,EVERYDAY
+}Day;
+
 
 void TimeService_Create(void);
 
 void TimeService_Destroy(void);
 
-void TimeService_GetTime(Time* time);
+int TimeService_GetTime(Time *time);
 
 #endif /* TIMESERVICE_H_ */

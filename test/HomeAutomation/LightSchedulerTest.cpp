@@ -9,18 +9,29 @@ extern "C" {
 
 TEST_GROUP(LightScheduler) {
 	void setup() {
-		/*LightScheduler_Create();
+		LightScheduler_Create();
 		LightController_Create();
-		*/
+		
 	}
 	void teardown() {
-		/*LightScheduler_Destroy();
+		LightScheduler_Destroy();
 		LightController_Destroy();
-		*/
+		
 	}
 };
 
-/*
+
+TEST(LightScheduler,NoSchedlueNothingHappnes)
+{
+	FakeTimeService_SetDay(MONDAY);
+	FakeTimeService_SetMinute(100);
+	LightScheduler_Wakeup();
+	LONGS_EQUAL(LIGHT_ID_UNKNOWN,LightControllerSpy_GetLastId());
+	LONGS_EQUAL(LIGHT_STATE_UNKNOWN,LightControllerSpy_GetLastState());
+
+
+}
+
 TEST(LightScheduler,ScheduleOnEveryDayNotTimeYet)
 {
 	LightScheduler_SchedulerTurnOn(3,MONDAY,1200);
@@ -31,7 +42,20 @@ TEST(LightScheduler,ScheduleOnEveryDayNotTimeYet)
 	LONGS_EQUAL(LIGHT_ID_UNKNOWN,LightControllerSpy_GetLastId());
 	LONGS_EQUAL(LIGHT_STATE_UNKNOWN,LightControllerSpy_GetLastState());
 
-}*/
+}
+
+TEST(LightScheduler,ScheduleOnEverydayItsTime)
+{
+	LightScheduler_SchedulerTurnOn(3,EVERYDAY,1200);
+	FakeTimeService_SetDay(MONDAY);
+	FakeTimeService_SetMinute(1200);
+	
+	LightScheduler_Wakeup();
+
+	LONGS_EQUAL(3,LightControllerSpy_GetLastId());
+	LONGS_EQUAL(LIGHT_ON,LightControllerSpy_GetLastState());
+
+}
 
 /*
 TEST(LightScheduler,NoChnageToLightsDuringInitialization)
