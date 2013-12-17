@@ -4,7 +4,7 @@ extern "C" {
 #include "FakeTimeService.h"
 #include "LightScheduler.h"
 }
-
+/*
 TEST_GROUP(FakeTimeService) {
 	void setup() {
 		TimeService_Create();
@@ -29,3 +29,4 @@ TEST(FakeTimeService, Set) {
 	LONGS_EQUAL(42, time.minuteOfDay);
 	LONGS_EQUAL(SATURDAY, time.dayOfWeek);
 }
+*/
