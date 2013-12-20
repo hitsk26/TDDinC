@@ -10,10 +10,6 @@ enum {
 	TIME_UNKNOWN = -1
 };
 
-typedef enum
-{
-	MONDAY,SUNDAY,SATURDAY,EVERYDAY
-}Day;
 
 
 void TimeService_Create(void);

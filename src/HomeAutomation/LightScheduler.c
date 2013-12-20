@@ -7,6 +7,7 @@ typedef struct
 	int id;
 	int minuteOfDay;
 	int event;
+	int day;
 }ScheduleLightEvent;
 
 enum {
@@ -50,9 +51,16 @@ static void operateLight(ScheduleLightEvent* lightEvent) {
 
 static void processEventDueNow(Time *time,ScheduleLightEvent *lightEvent)
 {
+
+	int reactionDay = lightEvent->day;
+	int today = time->dayOfWeek;
+
 	if(lightEvent->id == UNUSED){
 			return;
-		}
+	}
+	if(reactionDay != EVERYDAY && reactionDay != today){
+		return;
+	}
 	if(lightEvent->minuteOfDay != time->minuteOfDay){
 			return;
 	}
@@ -67,16 +75,16 @@ void LightScheduler_SchedulerTurnOn(int id,Day day,int minuteOfDay)
 	scheduleEvent(id,day,minuteOfDay,TURN_ON);
 }
 
-static void scheduleEvent(int id, Day day,int minuteOfDay,int event)
-{
-	scheduledEvent.id = id;
-	scheduledEvent.event = event;
-	scheduledEvent.minuteOfDay = minuteOfDay;
-
-}
-
 void LightScheduler_SchedulerTurnOff(int id,Day day,int minuteOfDay)
 {
 	scheduleEvent(id,day,minuteOfDay,TURN_OFF);
 }
 
+static void scheduleEvent(int id, Day day,int minuteOfDay,int event)
+{
+	scheduledEvent.id = id;
+	scheduledEvent.event = event;
+	scheduledEvent.minuteOfDay = minuteOfDay;
+	scheduledEvent.day = day;
+
+}
