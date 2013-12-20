@@ -132,3 +132,25 @@ TEST(LightScheduler,NoChnageToLightsDuringInitialization)
 
 }*/
 
+
+TEST_GROUP(LightSchedulerInitAndCleanUp)
+{
+};
+
+TEST(LightSchedulerInitAndCleanUp,CreateStartsOneMinuteAlarm)
+{
+	LightScheduler_Create();
+	POINTERS_EQUAL((void *)LightScheduler_Wakeup,
+			(void*)FakeTimeService_GetAlarmCallback());
+
+	LONGS_EQUAL(60,FakeTimeService_GetAlarmPeriod());
+	LightScheduler_Destroy();
+}
+
+TEST(LightSchedulerInitAndCleanUp,DestoryCancelsOneMnuteAlarm)
+{
+	LightScheduler_Create();
+	LightScheduler_Destroy();
+	POINTERS_EQUAL(NULL,(void*)FakeTimeService_GetAlarmCallback());
+
+}

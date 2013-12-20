@@ -25,11 +25,13 @@ static ScheduleLightEvent scheduledEvent;
 void LightScheduler_Create(void)
 {
 	scheduledEvent.id = UNUSED;
+	TimeService_SetPeriodicAlarmInSeconds(60,LightScheduler_Wakeup);
+
 }
 
 void LightScheduler_Destroy(void)
 {
-
+	TimeService_CancelPeriodicAlarmInSeconds(60,LightScheduler_Wakeup);
 }
 
 void LightScheduler_Wakeup(void)
