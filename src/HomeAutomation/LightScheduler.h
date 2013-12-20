@@ -6,6 +6,7 @@ void LightScheduler_Destroy(void);
 void LightScheduler_Wakeup(void);
 void LightScheduler_SchedulerTurnOn(int id,Day day,int minuteOfDay);
 void LightScheduler_SchedulerTurnOff(int id,Day day,int minuteOfDay);
+static void scheduleEvent(int id, Day day,int minuteOfDay,int event);
 
 enum{
 	UNUSED

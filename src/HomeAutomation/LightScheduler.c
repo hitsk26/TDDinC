@@ -50,17 +50,19 @@ void LightScheduler_Wakeup(void)
 }
 void LightScheduler_SchedulerTurnOn(int id,Day day,int minuteOfDay)
 {
+	scheduleEvent(id,day,minuteOfDay,TURN_ON);
+}
+
+void scheduleEvent(int id, Day day,int minuteOfDay,int event)
+{
 	scheduledEvent.id = id;
-	scheduledEvent.event = TURN_ON;
-	scheduledEvent.minuteOfDay = minuteOfDay ;
+	scheduledEvent.event = event;
+	scheduledEvent.minuteOfDay = minuteOfDay;
 
 }
 
 void LightScheduler_SchedulerTurnOff(int id,Day day,int minuteOfDay)
 {
-	scheduledEvent.id = id;
-	scheduledEvent.event = TURN_OFF;
-	scheduledEvent.minuteOfDay = minuteOfDay ;
-
+	scheduleEvent(id,day,minuteOfDay,TURN_OFF);
 }
 
