@@ -1,6 +1,7 @@
 #include "TimeService.h"
 #include "LightScheduler.h"
 #include "LightController.h"
+#include <stdbool.h>
 
 typedef struct
 {
@@ -49,20 +50,36 @@ static void operateLight(ScheduleLightEvent* lightEvent) {
 	}
 }
 
+static bool DoesLightRespondToday(Time *time,int reactionDay)
+{
+	int today = time->dayOfWeek;
+
+	if(reactionDay == EVERYDAY){
+		return true;
+	}
+	if(reactionDay == today){
+		return true;
+	}
+	if(reactionDay == WEEKEND && (SATURDAY == today || SUNDAY == today)){
+		return true;
+	}
+	if(reactionDay == WEEKDAY && today >= MONDAY && today <= FRIDAY){
+		return true;
+	}
+	return false;
+}
+
 static void processEventDueNow(Time *time,ScheduleLightEvent *lightEvent)
 {
-
-	int reactionDay = lightEvent->day;
-	int today = time->dayOfWeek;
 
 	if(lightEvent->id == UNUSED){
 			return;
 	}
-	if(reactionDay != EVERYDAY && reactionDay != today){
-		return;
-	}
 	if(lightEvent->minuteOfDay != time->minuteOfDay){
 			return;
+	}
+	if(!DoesLightRespondToday(time,lightEvent->day)){
+		return;
 	}
 
 	operateLight(&scheduledEvent);
