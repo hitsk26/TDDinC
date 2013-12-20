@@ -2,19 +2,24 @@
 #include "LightScheduler.h"
 #include "LightController.h"
 
-typedef struct 
+typedef struct
 {
 	int id;
 	int minuteOfDay;
-
+	int event;
 }ScheduleLightEvent;
 
-static ScheduleLightEvent scheduleLightEvent;
+enum {
+	TURN_OFF = 0,
+	TURN_ON  = 1
+};
+
+static ScheduleLightEvent scheduledEvent;
 
 
 void LightScheduler_Create(void)
 {
-	scheduleLightEvent.id = UNUSED;
+	scheduledEvent.id = UNUSED;
 }
 
 void LightScheduler_Destroy(void)
@@ -27,19 +32,35 @@ void LightScheduler_Wakeup(void)
 	Time time;
 	TimeService_GetTime(&time);
 
-	if(scheduleLightEvent.id == UNUSED){
+	if(scheduledEvent.id == UNUSED){
 		return;
 	}
-	if(time.minuteOfDay != scheduleLightEvent.minuteOfDay){
+	if(time.minuteOfDay != scheduledEvent.minuteOfDay){
 		return;
 	}
 
-	LightController_On(scheduleLightEvent.id);
+	if(scheduledEvent.event == TURN_ON){
+		LightController_On(scheduledEvent.id);
+	}
+	else if(scheduledEvent.event == TURN_OFF){
+		LightController_Off(scheduledEvent.id);
+	}
+
 
 }
 void LightScheduler_SchedulerTurnOn(int id,Day day,int minuteOfDay)
 {
-	scheduleLightEvent.id = id;
-	scheduleLightEvent.minuteOfDay = minuteOfDay ;
+	scheduledEvent.id = id;
+	scheduledEvent.event = TURN_ON;
+	scheduledEvent.minuteOfDay = minuteOfDay ;
 
 }
+
+void LightScheduler_SchedulerTurnOff(int id,Day day,int minuteOfDay)
+{
+	scheduledEvent.id = id;
+	scheduledEvent.event = TURN_OFF;
+	scheduledEvent.minuteOfDay = minuteOfDay ;
+
+}
+

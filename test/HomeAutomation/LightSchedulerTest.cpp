@@ -11,12 +11,12 @@ TEST_GROUP(LightScheduler) {
 	void setup() {
 		LightScheduler_Create();
 		LightController_Create();
-		
+
 	}
 	void teardown() {
 		LightScheduler_Destroy();
 		LightController_Destroy();
-		
+
 	}
 };
 
@@ -49,7 +49,7 @@ TEST(LightScheduler,ScheduleOnEverydayItsTime)
 	LightScheduler_SchedulerTurnOn(3,EVERYDAY,1200);
 	FakeTimeService_SetDay(MONDAY);
 	FakeTimeService_SetMinute(1200);
-	
+
 	LightScheduler_Wakeup();
 
 	LONGS_EQUAL(3,LightControllerSpy_GetLastId());
@@ -57,6 +57,16 @@ TEST(LightScheduler,ScheduleOnEverydayItsTime)
 
 }
 
+TEST(LightScheduler,ScheduleOffEverydayItsTime)
+{
+	LightScheduler_SchedulerTurnOff(3,EVERYDAY,1200);
+	FakeTimeService_SetDay(MONDAY);
+	FakeTimeService_SetMinute(1200);
+	LightScheduler_Wakeup();
+
+	LONGS_EQUAL(3,LightControllerSpy_GetLastId());
+	LONGS_EQUAL(LIGHT_OFF,LightControllerSpy_GetLastState());
+}
 /*
 TEST(LightScheduler,NoChnageToLightsDuringInitialization)
 {
