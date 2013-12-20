@@ -1,2 +1,2 @@
 
-This is sample code for the CppUtest for NXTOSEK
+テスト駆動開発によるプ組み込みプログラミングの読書会で打ったソースコード 
