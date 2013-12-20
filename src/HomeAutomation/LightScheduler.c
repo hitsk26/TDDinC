@@ -13,6 +13,9 @@ enum {
 	TURN_OFF = 0,
 	TURN_ON  = 1
 };
+static void scheduleEvent(int id, Day day,int minuteOfDay,int event);
+static void processEventDueNow(Time *time,ScheduleLightEvent *lightEvent);
+static void operateLight(ScheduleLightEvent* lightEvent);
 
 static ScheduleLightEvent scheduledEvent;
 
@@ -32,28 +35,39 @@ void LightScheduler_Wakeup(void)
 	Time time;
 	TimeService_GetTime(&time);
 
-	if(scheduledEvent.id == UNUSED){
-		return;
-	}
-	if(time.minuteOfDay != scheduledEvent.minuteOfDay){
-		return;
-	}
-
-	if(scheduledEvent.event == TURN_ON){
-		LightController_On(scheduledEvent.id);
-	}
-	else if(scheduledEvent.event == TURN_OFF){
-		LightController_Off(scheduledEvent.id);
-	}
-
+	processEventDueNow(&time,&scheduledEvent);
 
 }
+
+static void operateLight(ScheduleLightEvent* lightEvent) {
+
+	if (lightEvent->event == TURN_ON) {
+		LightController_On(lightEvent->id);
+	} else if (lightEvent->event == TURN_OFF) {
+		LightController_Off(lightEvent->id);
+	}
+}
+
+static void processEventDueNow(Time *time,ScheduleLightEvent *lightEvent)
+{
+	if(lightEvent->id == UNUSED){
+			return;
+		}
+	if(lightEvent->minuteOfDay != time->minuteOfDay){
+			return;
+	}
+
+	operateLight(&scheduledEvent);
+
+}
+
+
 void LightScheduler_SchedulerTurnOn(int id,Day day,int minuteOfDay)
 {
 	scheduleEvent(id,day,minuteOfDay,TURN_ON);
 }
 
-void scheduleEvent(int id, Day day,int minuteOfDay,int event)
+static void scheduleEvent(int id, Day day,int minuteOfDay,int event)
 {
 	scheduledEvent.id = id;
 	scheduledEvent.event = event;
