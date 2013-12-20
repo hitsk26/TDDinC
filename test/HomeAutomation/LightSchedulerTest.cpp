@@ -7,6 +7,7 @@ extern "C" {
 #include "TimeService.h"
 }
 
+
 TEST_GROUP(LightScheduler) {
 	void setup() {
 		LightScheduler_Create();
@@ -18,54 +19,56 @@ TEST_GROUP(LightScheduler) {
 		LightController_Destroy();
 
 	}
+	void setTimeTo(int day,int minuteOfDay){
+
+		FakeTimeService_SetDay(day);
+		FakeTimeService_SetMinute(minuteOfDay);
+
+	}
+
+	void checkLightState(int id,int level)
+	{
+		LONGS_EQUAL(id,LightControllerSpy_GetLastId());
+		LONGS_EQUAL(level,LightControllerSpy_GetLastState());
+
+	}
 };
 
 
 TEST(LightScheduler,NoSchedlueNothingHappnes)
 {
-	FakeTimeService_SetDay(MONDAY);
-	FakeTimeService_SetMinute(100);
+	setTimeTo(MONDAY,100);
 	LightScheduler_Wakeup();
-	LONGS_EQUAL(LIGHT_ID_UNKNOWN,LightControllerSpy_GetLastId());
-	LONGS_EQUAL(LIGHT_STATE_UNKNOWN,LightControllerSpy_GetLastState());
-
-
+	checkLightState(LIGHT_ID_UNKNOWN,LIGHT_STATE_UNKNOWN);
 }
 
 TEST(LightScheduler,ScheduleOnEveryDayNotTimeYet)
 {
 	LightScheduler_SchedulerTurnOn(3,MONDAY,1200);
-	FakeTimeService_SetDay(MONDAY);
-	FakeTimeService_SetMinute(1199);
+	setTimeTo(MONDAY,1199);
 	LightScheduler_Wakeup();
 
-	LONGS_EQUAL(LIGHT_ID_UNKNOWN,LightControllerSpy_GetLastId());
-	LONGS_EQUAL(LIGHT_STATE_UNKNOWN,LightControllerSpy_GetLastState());
+	checkLightState(LIGHT_ID_UNKNOWN,LIGHT_STATE_UNKNOWN);
 
 }
 
 TEST(LightScheduler,ScheduleOnEverydayItsTime)
 {
 	LightScheduler_SchedulerTurnOn(3,EVERYDAY,1200);
-	FakeTimeService_SetDay(MONDAY);
-	FakeTimeService_SetMinute(1200);
-
+	setTimeTo(MONDAY,1200);
 	LightScheduler_Wakeup();
 
-	LONGS_EQUAL(3,LightControllerSpy_GetLastId());
-	LONGS_EQUAL(LIGHT_ON,LightControllerSpy_GetLastState());
+	checkLightState(3,LIGHT_ON);
 
 }
 
 TEST(LightScheduler,ScheduleOffEverydayItsTime)
 {
 	LightScheduler_SchedulerTurnOff(3,EVERYDAY,1200);
-	FakeTimeService_SetDay(MONDAY);
-	FakeTimeService_SetMinute(1200);
+	setTimeTo(MONDAY,1200);
 	LightScheduler_Wakeup();
 
-	LONGS_EQUAL(3,LightControllerSpy_GetLastId());
-	LONGS_EQUAL(LIGHT_OFF,LightControllerSpy_GetLastState());
+	checkLightState(3,LIGHT_OFF);
 }
 /*
 TEST(LightScheduler,NoChnageToLightsDuringInitialization)
