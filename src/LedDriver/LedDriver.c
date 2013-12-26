@@ -79,7 +79,7 @@ static void setLedImageBit(int ledNumber)
 
 static void clearLedImageBit(int ledNumber)
 {
-	ledsImage &= ~(convertLedNumberToBit(ledNumber)); 
+	ledsImage &= ~(convertLedNumberToBit(ledNumber));
 }
 
 int LedDriver_IsOn(int ledNumber)
