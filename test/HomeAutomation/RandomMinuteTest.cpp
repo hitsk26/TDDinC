@@ -55,3 +55,4 @@ TEST(RandomMinute,AllValuesPossible)
 		CHECK(hit[i]>0);
 	}
 }
+

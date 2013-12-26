@@ -107,3 +107,8 @@ static void scheduleEvent(int id, Day day,int minuteOfDay,int event)
 	scheduledEvent.day = day;
 
 }
+void LightScheduler_Randomize(int id,Day day,int minuteOfDay)
+{
+
+}
+
