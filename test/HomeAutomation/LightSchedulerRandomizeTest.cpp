@@ -38,14 +38,14 @@ TEST_GROUP(LightSchedulerRandomize)
 			LONGS_EQUAL(level,LightControllerSpy_GetLastState());
 		}
 		else {
-			/*LONGS_EQUAL(level,LightControllerSpy_GetLightState(id);*/
+			LONGS_EQUAL(level,LightControllerSpy_GetLightState(id));
 		}
 	}
 
 };
 
 
-TEST(LightSchedulerRandomize, TurnOnEarly)
+IGNORE_TEST(LightSchedulerRandomize, TurnOnEarly)
 {
   FakeRandom_Minute_SetFirstAndIncrement(-10 , 5);
   LightScheduler_ScheduleTurnOn(4, EVERYDAY, 600);
