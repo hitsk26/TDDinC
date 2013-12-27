@@ -28,9 +28,13 @@ TEST_GROUP(LightScheduler) {
 
 	void checkLightState(int id,int level)
 	{
-		LONGS_EQUAL(id,LightControllerSpy_GetLastId());
-		LONGS_EQUAL(level,LightControllerSpy_GetLastState());
-
+		if(id == LIGHT_ID_UNKNOWN){
+			LONGS_EQUAL(id,LightControllerSpy_GetLastId());
+			LONGS_EQUAL(level,LightControllerSpy_GetLastState());
+		}
+		else {
+			LONGS_EQUAL(level,LightControllerSpy_GetLightState(id));
+		}
 	}
 };
 
@@ -44,7 +48,7 @@ TEST(LightScheduler,NoSchedlueNothingHappnes)
 
 TEST(LightScheduler,ScheduleOnEveryDayNotTimeYet)
 {
-	LightScheduler_SchedulerTurnOn(3,MONDAY,1200);
+	LightScheduler_ScheduleTurnOn(3,MONDAY,1200);
 	setTimeTo(MONDAY,1199);
 	LightScheduler_Wakeup();
 
@@ -54,7 +58,7 @@ TEST(LightScheduler,ScheduleOnEveryDayNotTimeYet)
 
 TEST(LightScheduler,ScheduleOnEverydayItsTime)
 {
-	LightScheduler_SchedulerTurnOn(3,EVERYDAY,1200);
+	LightScheduler_ScheduleTurnOn(3,EVERYDAY,1200);
 	setTimeTo(MONDAY,1200);
 	LightScheduler_Wakeup();
 
@@ -64,7 +68,7 @@ TEST(LightScheduler,ScheduleOnEverydayItsTime)
 
 TEST(LightScheduler,ScheduleOffEverydayItsTime)
 {
-	LightScheduler_SchedulerTurnOff(3,EVERYDAY,1200);
+	LightScheduler_ScheduleTurnOff(3,EVERYDAY,1200);
 	setTimeTo(MONDAY,1200);
 	LightScheduler_Wakeup();
 
@@ -73,7 +77,7 @@ TEST(LightScheduler,ScheduleOffEverydayItsTime)
 
 TEST(LightScheduler,ScheduleTuesdayButItsMonday)
 {
-	LightScheduler_SchedulerTurnOn(3,TUESDAY,1200);
+	LightScheduler_ScheduleTurnOn(3,TUESDAY,1200);
 	setTimeTo(MONDAY,1200);
 	LightScheduler_Wakeup();
 
@@ -83,7 +87,7 @@ TEST(LightScheduler,ScheduleTuesdayButItsMonday)
 
 TEST(LightScheduler,ScheduleTuesdayAndtItsday)
 {
-	LightScheduler_SchedulerTurnOn(3,TUESDAY,1200);
+	LightScheduler_ScheduleTurnOn(3,TUESDAY,1200);
 	setTimeTo(TUESDAY,1200);
 	LightScheduler_Wakeup();
 
@@ -93,7 +97,7 @@ TEST(LightScheduler,ScheduleTuesdayAndtItsday)
 
 TEST(LightScheduler,ScheduleWeekEndItsFriday)
 {
-	LightScheduler_SchedulerTurnOn(3,WEEKEND,1200);
+	LightScheduler_ScheduleTurnOn(3,WEEKEND,1200);
 	setTimeTo(FRIDAY,1200);
 	LightScheduler_Wakeup();
 	checkLightState(LIGHT_ID_UNKNOWN,LIGHT_STATE_UNKNOWN);
@@ -102,7 +106,7 @@ TEST(LightScheduler,ScheduleWeekEndItsFriday)
 
 TEST(LightScheduler,ScheduleWeekEndItsSaturday)
 {
-	LightScheduler_SchedulerTurnOn(3,WEEKEND,1200);
+	LightScheduler_ScheduleTurnOn(3,WEEKEND,1200);
 	setTimeTo(SATURDAY,1200);
 	LightScheduler_Wakeup();
 	checkLightState(3,LIGHT_ON);
@@ -111,26 +115,32 @@ TEST(LightScheduler,ScheduleWeekEndItsSaturday)
 
 TEST(LightScheduler,ScheduleWeekEndItsSunday)
 {
-	LightScheduler_SchedulerTurnOn(3,WEEKEND,1200);
+	LightScheduler_ScheduleTurnOn(3,WEEKEND,1200);
 	setTimeTo(SUNDAY,1200);
 	LightScheduler_Wakeup();
 	checkLightState(3,LIGHT_ON);
 }
 TEST(LightScheduler,ScheduleWeekEndItsMonday)
 {
-	LightScheduler_SchedulerTurnOn(3,WEEKEND,1200);
+	LightScheduler_ScheduleTurnOn(3,WEEKEND,1200);
 	setTimeTo(MONDAY,1200);
 	LightScheduler_Wakeup();
 	checkLightState(LIGHT_ID_UNKNOWN,LIGHT_STATE_UNKNOWN);
 }
 
-/*
-TEST(LightScheduler,NoChnageToLightsDuringInitialization)
-{
-	LONGS_EQUAL(LIGHT_ID_UNKNOWN,LightControllerSpy_GetLastId());
-	LONGS_EQUAL(LIGHT_STATE_UNKNOWN,LightControllerSpy_GetLastState());
 
-}*/
+TEST(LightScheduler,ScheduleTwoEventsAtTheSameTime)
+{
+	LightScheduler_ScheduleTurnOn(3,SUNDAY,1200);
+	LightScheduler_ScheduleTurnOn(12,SUNDAY,1200);
+
+	setTimeTo(SUNDAY,1200);
+
+	LightScheduler_Wakeup();
+
+	checkLightState(3,LIGHT_ON);
+	checkLightState(12,LIGHT_ON);
+}
 
 
 TEST_GROUP(LightSchedulerInitAndCleanUp)
@@ -154,3 +164,5 @@ TEST(LightSchedulerInitAndCleanUp,DestoryCancelsOneMnuteAlarm)
 	POINTERS_EQUAL(NULL,(void*)FakeTimeService_GetAlarmCallback());
 
 }
+
+

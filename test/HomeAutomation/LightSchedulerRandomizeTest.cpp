@@ -48,7 +48,7 @@ TEST_GROUP(LightSchedulerRandomize)
 TEST(LightSchedulerRandomize, TurnOnEarly)
 {
   FakeRandom_Minute_SetFirstAndIncrement(-10 , 5);
-  LightScheduler_SchedulerTurnOn(4, EVERYDAY, 600);
+  LightScheduler_ScheduleTurnOn(4, EVERYDAY, 600);
   LightScheduler_Randomize(4, EVERYDAY, 600);  //600 – 10になるはず
   setTimeTo(MONDAY, 600-10);
   LightScheduler_Wakeup();

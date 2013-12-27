@@ -35,7 +35,7 @@ typedef enum
 	LIGHT_OFF = 0, LIGHT_ON = 1
 } LightState;
 
-LightState LightControllerSpy_GetLightState(int id);
+int LightControllerSpy_GetLightState(int id);
 
 int LightControllerSpy_GetLastId(void);
 int LightControllerSpy_GetLastState(void);
