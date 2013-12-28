@@ -21,7 +21,8 @@ SRC_DIRS = \
   ./src/HomeAutomation\
   ./src/osek/\
   ./src/LedDriver\
- 
+  ./include/util\
+
 TEST_SRC_DIRS = \
 	./test\
 	./test/HomeAutomation\

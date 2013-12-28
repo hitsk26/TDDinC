@@ -8,8 +8,6 @@ extern "C"{
 #include "FakeTimeService.h"
 #include "LightControllerSpy.h"
 }
-//TODO　LightControllerSpy_GetLightState(int id)を実装する必要あり
-
 
 TEST_GROUP(LightSchedulerRandomize)
 {
