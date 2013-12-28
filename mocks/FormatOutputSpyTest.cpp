@@ -23,3 +23,11 @@ TEST(FormatOutputSpy,HelloWorld)
 	STRCMP_EQUAL("Hello,World\n",FormatOutputSpy_GetOutput());
 
 }
+TEST(FormatOutputSpy,PrintMultipleTimes)
+{
+	FormatOutputSpy_Create(25);
+	FormatOutput("Hello,");
+	FormatOutput("World\n");
+	STRCMP_EQUAL("Hello,World\n",FormatOutputSpy_GetOutput());
+
+}
