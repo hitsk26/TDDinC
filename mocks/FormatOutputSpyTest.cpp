@@ -19,7 +19,7 @@ TEST_GROUP(FormatOutputSpy)
 TEST(FormatOutputSpy,HelloWorld)
 {
 	FormatOutputSpy_Create(20);
-	FormatOutput("Hello,Worlkd\n");
+	FormatOutput("Hello,World\n");
 	STRCMP_EQUAL("Hello,World\n",FormatOutputSpy_GetOutput());
 
 }
