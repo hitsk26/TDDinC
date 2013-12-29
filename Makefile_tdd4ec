@@ -29,6 +29,7 @@ TEST_SRC_DIRS = \
 	./test/Sprintf\
 	./test/LEDDriver\
 	./mocks\
+	./test/util\
 
 INCLUDE_DIRS =\
   ./src/HomeAutomation\
